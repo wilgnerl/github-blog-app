@@ -46,6 +46,10 @@ export const DataProfileHeader = styled.header`
     color: ${(props) => props.theme.blue};
     text-transform: uppercase;
   }
+
+  a:hover {
+    border-bottom: 1px solid ${(props) => props.theme.blue};
+  }
 `
 
 export const DataProfileMain = styled.main`

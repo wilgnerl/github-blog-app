@@ -1,3 +1,10 @@
+import { CardProfile } from './CardProfile'
+import { HomeContainer } from './styles'
+
 export function Home() {
-  return <h1>Home</h1>
+  return (
+    <HomeContainer>
+      <CardProfile />
+    </HomeContainer>
+  )
 }

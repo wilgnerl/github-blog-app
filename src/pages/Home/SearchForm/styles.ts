@@ -2,10 +2,10 @@ import styled from 'styled-components'
 
 export const SearchFormContainer = styled.div`
   width: 54rem;
-  height: 13.25rem;
   display: flex;
   flex-direction: column;
   margin-top: 4.5rem;
+  margin-bottom: 3rem;
 `
 
 export const SearchFormHeader = styled.header`

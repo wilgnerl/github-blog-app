@@ -1,3 +1,10 @@
+import coverImg from '../../assets/Cover.svg'
+import { ImgContainer } from './styles'
+
 export function Header() {
-  return <h1>Header</h1>
+  return (
+    <ImgContainer>
+      <img src={coverImg} alt="" />
+    </ImgContainer>
+  )
 }

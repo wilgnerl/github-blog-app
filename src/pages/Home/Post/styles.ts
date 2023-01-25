@@ -2,10 +2,14 @@ import styled from 'styled-components'
 
 export const PostContainer = styled.div`
   width: 26rem;
-  /* height: 16.25rem; */
+  height: 16.25rem;
   background-color: ${(props) => props.theme['base-post']};
   padding: 2rem;
   border-radius: 10px;
+
+  &:hover {
+    border: 2px solid ${(props) => props.theme['base-label']};
+  }
 `
 
 export const PostContainerHeader = styled.header`

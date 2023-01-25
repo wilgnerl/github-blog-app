@@ -12,41 +12,63 @@ import {
   PostInfoIcons,
   PostInfoMain,
 } from './styles'
+import { formatDistanceToNow } from 'date-fns'
+import ptBR from 'date-fns/locale/pt-BR'
+import { NavLink } from 'react-router-dom'
 
-export function PostInfo() {
+interface PostInfoProps {
+  githubUrl: string
+  title: string
+  login: string
+  createdAt: string
+  comments: number
+}
+
+export function PostInfo({
+  githubUrl,
+  title,
+  login,
+  createdAt,
+  comments,
+}: PostInfoProps) {
   return (
     <PostInfoContainer>
       <PostInfoHeader>
-        <span>
+        <NavLink to="/">
           <CaretLeft size={14} weight="bold" />
           voltar
-        </span>
-        <a href="">
+        </NavLink>
+        <a href={githubUrl} target="_blank" rel="noopener noreferrer">
           Ver no github
           <ArrowSquareUpRight weight="bold" />
         </a>
       </PostInfoHeader>
       <PostInfoMain>
-        <h1>JavaScript data types and data structures</h1>
+        <h1>{title}</h1>
       </PostInfoMain>
       <PostInfoFooter>
         <PostInfoIcons>
           <div>
             <GithubLogo size={18} weight="fill" />
           </div>
-          <span>wilgnerl</span>
+          <span>{login}</span>
         </PostInfoIcons>
         <PostInfoIcons>
           <div>
             <CalendarBlank size={18} weight="fill" />
           </div>
-          <time>Ha 1 dia</time>
+          <time>
+            {formatDistanceToNow(new Date(createdAt), {
+              addSuffix: true,
+              locale: ptBR,
+            })}
+          </time>
         </PostInfoIcons>
         <PostInfoIcons>
           <div>
             <ChatCircle size={18} weight="fill" />
           </div>
-          <span>5 comentarios</span>
+          <span>{comments} comentarios</span>
         </PostInfoIcons>
       </PostInfoFooter>
     </PostInfoContainer>

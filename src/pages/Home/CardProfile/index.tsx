@@ -13,26 +13,36 @@ import {
   InfoIconsContainer,
 } from './styles'
 
-export function CardProfile() {
+interface UserData {
+  avatarUrl: string
+  name: string
+  htmlUrl: string
+  bio: string
+  login: string
+  company: string
+  followers: number
+}
+
+interface UserDataProps {
+  userData: UserData
+}
+
+export function CardProfile({ userData }: UserDataProps) {
   return (
     <CardProfileContainer>
-      <img src="https://github.com/wilgnerl.png" alt="Avatar" />
+      <img src={userData.avatarUrl} alt="Avatar" />
 
       <DataProfileContainer>
         <DataProfileHeader>
-          <span>Wilgner Lopes</span>
-          <a href="">
+          <span>{userData.name}</span>
+          <a href={userData.htmlUrl} target="_blank" rel="noopener noreferrer">
             Github
             <ArrowSquareUpRight weight="bold" />
           </a>
         </DataProfileHeader>
 
         <DataProfileMain>
-          <span>
-            Tristique volutpat pulvinar vel massa, pellentesque egestas. Eu
-            viverra massa quam dignissim aenean malesuada suscipit. Nunc,
-            volutpat pulvinar vel mass.
-          </span>
+          <span>{userData.bio}</span>
         </DataProfileMain>
 
         <DataProfileFooter>
@@ -40,19 +50,19 @@ export function CardProfile() {
             <div>
               <GithubLogo size={18} weight="fill" />
             </div>
-            <span>wilgnerl</span>
+            <span>{userData.login}</span>
           </InfoIconsContainer>
           <InfoIconsContainer>
             <div>
               <Buildings size={18} weight="fill" />
             </div>
-            <span>Makers</span>
+            <span>{userData.company ? userData.company : 'Sem empresa'}</span>
           </InfoIconsContainer>
           <InfoIconsContainer>
             <div>
               <Users size={18} weight="fill" />
             </div>
-            <span>8 Seguidores</span>
+            <span>{userData.followers} Seguidores</span>
           </InfoIconsContainer>
         </DataProfileFooter>
       </DataProfileContainer>

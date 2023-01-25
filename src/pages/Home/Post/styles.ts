@@ -1,11 +1,14 @@
 import styled from 'styled-components'
+import { NavLink } from 'react-router-dom'
 
-export const PostContainer = styled.div`
+export const PostContainer = styled(NavLink)`
   width: 26rem;
   height: 16.25rem;
   background-color: ${(props) => props.theme['base-post']};
   padding: 2rem;
   border-radius: 10px;
+
+  text-decoration: none;
 
   &:hover {
     border: 2px solid ${(props) => props.theme['base-label']};
@@ -18,6 +21,7 @@ export const PostContainerHeader = styled.header`
   gap: 1rem;
 
   h1 {
+    color: ${(props) => props.theme['base-title']};
     flex: 1;
     font-weight: 700;
     font-size: 1.25rem;
@@ -35,6 +39,7 @@ export const PostContainerHeader = styled.header`
 export const PostContainerMain = styled.main`
   margin-top: 1.25rem;
   p {
+    color: ${(props) => props.theme['base-text']};
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
